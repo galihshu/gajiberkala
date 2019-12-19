@@ -35,6 +35,7 @@ class Siswa extends \yii\db\ActiveRecord
             [['nis'], 'string', 'max' => 15],
             [['nama'], 'string', 'max' => 200],
             [['tglhr'],'safe'],
+            [['gaji_ortu'],'integer'],
             [['kelas_id'], 'exist', 'skipOnError' => true, 'targetClass' => Kelas::className(), 'targetAttribute' => ['kelas_id' => 'id']],
         ];
     }

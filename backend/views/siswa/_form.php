@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
+use kartik\number\NumberControl;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Siswa */
@@ -28,6 +29,16 @@ use kartik\date\DatePicker;
 	?>
 
     <?= $form->field($model, 'kelas_id')->textInput() ?>
+
+    <?=
+	$form->field($model, 'gaji_ortu')->widget(NumberControl::classname(), [
+	'model' => $model,
+    'attribute' => 'currency',
+    'maskedInputOptions' => [
+    	'prefix' => 'Rp ', 
+    	'suffix' => ' '],
+	]);	
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

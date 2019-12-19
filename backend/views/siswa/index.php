@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nis',
             'nama',
             'tglhr',
+            'gaji_ortu',
             'kelas_id',
             'kelas.nama_kelas',
 
