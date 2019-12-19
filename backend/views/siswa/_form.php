@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Siswa */
@@ -16,7 +17,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'kelas')->textInput(['maxlength' => true]) ?>
+	<?= 
+	$form->field($model, 'tglhr')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Masukkan Tanggal Lahir ...'],
+    'pluginOptions' => [
+        'autoclose'=>true,
+        'format' => 'yyyy-mm-dd'
+    ]
+	]);
+	?>
+
+    <?= $form->field($model, 'kelas_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

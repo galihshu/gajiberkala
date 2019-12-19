@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\SiswaSearch */
+/* @var $searchModel common\models\KelasSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Siswas';
+$this->title = 'Kelas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="siswa-index">
+<div class="kelas-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Siswa', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Kelas', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,11 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'nis',
-            'nama',
-            'tglhr',
-            'kelas_id',
-            'kelas.nama_kelas',
+            'nama_kelas',
+            'jumlahSiswa',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

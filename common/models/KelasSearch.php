@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Siswa;
+use common\models\Kelas;
 
 /**
- * SiswaSearch represents the model behind the search form of `common\models\Siswa`.
+ * KelasSearch represents the model behind the search form of `common\models\Kelas`.
  */
-class SiswaSearch extends Siswa
+class KelasSearch extends Kelas
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class SiswaSearch extends Siswa
     public function rules()
     {
         return [
-            [['id', 'kelas_id'], 'integer'],
-            [['nis', 'nama'], 'safe'],
+            [['id'], 'integer'],
+            [['nama_kelas'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class SiswaSearch extends Siswa
      */
     public function search($params)
     {
-        $query = Siswa::find();
+        $query = Kelas::find();
 
         // add conditions that should always apply here
 
@@ -59,11 +59,9 @@ class SiswaSearch extends Siswa
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'kelas_id' => $this->kelas_id,
         ]);
 
-        $query->andFilterWhere(['like', 'nis', $this->nis])
-            ->andFilterWhere(['like', 'nama', $this->nama]);
+        $query->andFilterWhere(['like', 'nama_kelas', $this->nama_kelas]);
 
         return $dataProvider;
     }
